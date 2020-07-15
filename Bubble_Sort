@@ -3,7 +3,7 @@ class Main{
     public static void main(String args[]);
     {
         Scanner s=new Scanner(System.in);
-        int x=s.nextInt()
+        int x=s.nextInt();
         int i,j,temp=0;
         int ar[]=new int[x];
         for(i=0;i<x;i++)

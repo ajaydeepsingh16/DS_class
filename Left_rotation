@@ -1,0 +1,44 @@
+import java.util.*;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        int d = scan.nextInt();
+        int[] array = new int[n];
+        for(int i=0; i<n;i++) {
+           array[i]=scan.nextInt();
+        }
+        int[] arrays=new int[d];
+        int ar[] =new int[n+1];
+        for(int i=0;i<d;i++)
+        {
+            arrays[i]=array[i];
+           
+        }
+      
+        for(int i=0;i<n-d;i++)
+        {
+            array[i]=array[i+d];
+         //   System.out.print(array[i]+" ");
+        }
+        for(int i=0;i<n-d;i++)
+        {
+            ar[i]=array[i];
+         
+        }
+       
+        int j=0;
+        for(int i=n-d;i<n;i++)
+        {
+            
+            ar[i]=arrays[j];
+            j++;
+           
+        }
+        for(int i=0;i<n;i++)
+        {
+            System.out.print(ar[i]+" ");
+        }
+     
+    }
+}

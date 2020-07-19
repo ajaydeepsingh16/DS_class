@@ -1,0 +1,33 @@
+import java.util.*;
+class Main
+{ 
+ // Function to print duplicates 
+    void printRepeating(int arr[], int size) 
+    { 
+        int i;   
+        System.out.println("The repeating elements are : "); 
+     
+        for (i = 0; i < size; i++) 
+        { 
+            if (arr[ Math.abs(arr[i])] >= 0) 
+                arr[ Math.abs(arr[i])] = -arr[ Math.abs(arr[i])]; 
+            else
+                System.out.print(Math.abs(arr[i]) + " "); 
+        }          
+    }  
+  
+    // Driver program  
+    public static void main(String[] args)  
+    { 
+       Main duplicate = new Main(); 
+       Scanner s=new Scanner(System.in);
+       System.out.println("Enter the size of array: ");
+      int n=s.nextInt();
+        int arr[] = new int[n];
+        System.out.println("Enter values of array: ");
+       for(int i=0;i<n;i++)
+       arr[i]=s.nextInt();
+  
+        duplicate.printRepeating(arr, n); 
+    } 
+}

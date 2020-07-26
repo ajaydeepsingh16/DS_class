@@ -1,0 +1,93 @@
+
+import java.util.*;
+public class Main
+{
+    
+    class Node{
+        int data;
+        Node next;
+        public Node(int d)
+        {
+            data=d;
+            next=null;
+        }
+    }
+    Node head;
+    public void insert(int data)
+    {
+        Node new_node=new Node(data);
+        if(head==null)
+        {
+            head=new_node;
+            
+        }
+        else{
+            Node temp=head;
+            while(temp.next!=null)
+            {
+                temp=temp.next;
+                
+            }
+            temp.next=new_node;
+        }
+    }
+    
+    public void insertPos(int data,int pos)
+    {
+        Node new_node=new Node(data);
+        if(pos==0 && head==null)
+        {
+            head=new_node;
+        }
+        else if(pos<0)
+        {
+            System.out.println("Position out of range");
+        }    
+        else{
+             Node current=head;
+                Node previous=null;
+            int i=1;
+            for(i=1;i<pos;i++)
+            {
+               previous=current;
+               current=current.next;
+               if(current.next==null)
+               {
+                   break;
+               }
+            }
+            new_node.next=current;
+            previous.next=new_node;
+        }
+        
+    }
+    
+    public void display()
+    {
+        if(head==null)
+        {
+            System.out.println("List is Empty");
+        }
+        else
+        {
+        Node current=head;
+        while(current!=null)
+        {
+            System.out.print(current.data+" ");
+            current=current.next;
+        }
+        }
+    }
+	public static void main(String[] args) {
+		Main ob=new Main();
+		
+		    ob.insert(10);
+		    ob.insert(20);
+		    ob.insert(30);
+		    //ob.display();
+		    ob.insertPos(3,2);
+		      ob.display();
+		
+		
+	}
+}

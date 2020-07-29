@@ -1,0 +1,88 @@
+
+import java.util.*;
+public class Main
+{
+    
+    public class Node 
+    {
+        char data;
+        Node next;
+        public Node(char d)
+        {
+            data=d;
+            next=null;
+        }
+    }
+    public static Node top;
+    public  void push(char d)
+    {
+        Node new_node = new Node(d);
+        if(top==null)
+        {
+            top=new_node;
+        }
+        else{
+            new_node.next=top;
+            top=new_node;
+        }
+    }
+    public void pop()
+    {
+        if(top==null)
+        {
+            System.out.println("Stack is already empty");
+        }
+        else{
+            top=top.next;
+        }
+    }
+    
+    public  void peek()
+    {
+        if(top==null)
+        {
+            System.out.println("Stack is Empty");
+        }
+        else{
+            System.out.println("Stack top is:"+top.data+" ");
+        }
+    }
+	public static void main(String[] args) {
+		Main ob=new Main();
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter a string to check");
+		String name = in.nextLine();
+		
+		
+		for(int i=0;i<name.length();i++)
+		{
+		char c=name.charAt(i);//returns h.
+		 ob.push(c);
+		 //ob.peek();
+		 
+		}
+		
+		for(int i=0;i<name.length();i++)
+		{
+		    		char j=name.charAt(i);//returns h.
+		    		
+		    		if(j==top.data)
+		    		{
+		    		ob.pop();
+		    		}
+		    	
+		    		
+		}
+	if(top!=null)
+	{
+	    System.out.println("Not a Palindrome");
+	}
+	else
+	{
+	    System.out.println("String is Palindrome");
+	}
+		
+	
+		
+	}
+}

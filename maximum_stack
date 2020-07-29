@@ -1,0 +1,99 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    
+    public class Node 
+    {
+        int data;
+        Node next;
+        public Node(int d)
+        {
+            data=d;
+            next=null;
+        }
+    }
+    public static Node top;
+    public  void push(int d)
+    {
+        Node new_node = new Node(d);
+        if(top==null)
+        {
+            top=new_node;
+        }
+        else{
+            new_node.next=top;
+            top=new_node;
+        }
+    }
+    public void pop()
+    {
+        if(top==null)
+        {
+            System.out.println("Stack is already empty");
+        }
+        else{
+            top=top.next;
+        }
+    }
+    
+    public  void peek()
+    {
+        if(top==null)
+        {
+            System.out.println("Stack is Empty");
+        }
+        else{
+            System.out.println("Stack top is:"+top.data+" ");
+        }
+    }
+	public static void main(String[] args) {
+		Main ob=new Main();
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter a numbers to check");
+		int l  = in.nextInt();
+		
+		int maximum=Integer.MIN_VALUE;
+		int mini=Integer.MAX_VALUE;
+		for(int i=0;i<l;i++)
+		{
+		    int c=in.nextInt();
+	ob.push(c);
+//	ob.peek();
+		 
+		 if (maximum<top.data)
+		 {
+            maximum = top.data; 
+		 }
+		 if(mini>top.data)
+		 {
+		    mini=top.data;
+		     
+		 }
+		 
+		}
+		for(int i=0;i<l;i++)
+		{
+		    	ob.peek();
+		    	ob.pop();
+		}
+	
+
+		System.out.println("Maximum element of stack is: "+maximum);
+		System.out.println("Minimum element of stack is: "+mini);
+	
+		
+		
+	
+		
+	
+		
+	}
+}

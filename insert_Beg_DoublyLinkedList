@@ -1,0 +1,56 @@
+import java.util.*;
+public class Main
+{
+    public class Node{
+        int data;
+        Node prev;
+        Node next;
+        public Node(int d)
+        {
+            data=d;
+            prev=null;
+            next=null;
+        }
+    }
+    public Node head;
+    public void push(int value)
+    {
+        Node new_node=new Node(value);
+        if(head==null)
+        {
+            head=new_node;
+        }
+        else
+        {
+            new_node.next=head;
+            new_node.prev=null;
+            head.prev=new_node;
+            head=new_node;
+        }
+    }
+    public void display()
+    {
+        if(head==null)
+        {
+            System.out.println("List is Empty");
+        }
+        else
+        {
+            Node current=head;
+            while(current!=null)
+            {
+                System.out.print(current.data+" ");
+                current=current.next;
+            }
+        }
+    }
+	public static void main(String[] args) {
+	    
+	    Main ob=new Main();
+	    ob.push(10);
+	    ob.push(20);
+	    ob.display();
+	   
+	//	System.out.println("Hello World");
+	}
+}

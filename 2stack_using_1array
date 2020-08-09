@@ -1,0 +1,65 @@
+public class Main
+{
+    int n=10;
+        int size=10;
+        int top1=-1;
+        int top2=n;
+        int ar[]=new int[10];
+    
+    public void push1(int x)
+    {
+        if(top1<top2-1)
+        {
+            
+            ar[++top1]=x;
+            
+        }
+        else
+        System.out.println("Stack is overflow");
+    }
+    public int pop1()
+    {
+        if(top1<top2-1)
+        {
+        int x= ar[top1];
+        top1--;
+        return x;
+        }
+        else
+        System.out.println("Stack underflow");
+        return 0;
+    }
+    public void push2(int x)
+    {
+        if(top1<top2-1)
+        {
+            ar[--top2]=x;
+        }
+        else
+        System.out.println("Stack overflow");
+    }
+    public int pop2()
+    {
+        if(top1<top2-1)
+        {
+            int x=ar[top2];
+            top2++;
+            return x;
+        }
+        else
+        System.out.println("Stack underflow");
+        return 0;
+    }
+    public static void main(String args[])
+    {
+        Main ob=new Main();
+        ob.push1(1);
+        ob.push1(2);
+        ob.push1(3);
+        ob.push2(10);
+        ob.push2(20);
+        ob.push2(30);
+        System.out.println("item poped from stack1: "+ob.pop1());
+         System.out.println("item poped from stack2: "+ob.pop2());
+    }
+}

@@ -1,0 +1,74 @@
+public class LinkedListStack
+{
+    public class Node{
+        int data;
+        Node link;
+        public Node(int x)
+        {
+            data=x;
+            link=null;
+        }
+    }
+    Node top;
+    public void push(int x)
+    {
+        Node temp=new Node(x);
+        
+            temp.link=top;
+            top=temp;
+        
+        
+    }
+    
+    public void pop()
+    {
+        if(top==null)
+        {
+            System.out.println("Stack Underflow");
+        }
+        else
+        {
+            int x=top.data;
+            top=top.link;
+            System.out.println(x+" is poped");
+        }
+        
+    }
+    
+    public void peek()
+    {
+        if(top==null)
+        {
+           System.out.println("Empty");
+        }
+        else
+        {
+           System.out.println(top.data+" "); 
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public static void main(String args[])
+    {
+        LinkedListStack ob=new LinkedListStack();
+        ob.push(10);
+        ob.push(20);
+        ob.push(30);
+        ob.peek();
+        ob.pop();
+        ob.peek();
+        ob.pop();
+        ob.push(5);
+        ob.peek();
+    }
+}

@@ -1,0 +1,60 @@
+import java.util.*;
+public class EvaluationOfPostfix
+{
+    
+    public static int Evaluation(String str)
+    { Stack<Integer> stack=new Stack<>();
+        for(int i=0;i<str.length();i++)
+        {
+           
+            char c=str.charAt(i);
+            if(Character.isDigit(c))
+            {
+              int num = Integer.parseInt(String.valueOf(c));
+              stack.push(num);
+                //stack.push(c-'0');
+            }
+            
+            else
+            {
+                int value1=stack.pop();
+                int value2=stack.pop();
+                switch(c)
+                {
+                    case '+':
+                        {
+                           stack.push(value2+value1);
+                           break;
+                        }
+                    case '-':
+                        {
+                            stack.push(value2-value1);
+                            break;
+                        }
+                    case '*':
+                        {
+                            stack.push(value2*value1);
+                            break;
+                        }
+                    case '/':
+                        {
+                            stack.push(value2/value1);
+                            break;
+                        }
+                }
+            }
+            
+        }
+        return stack.pop();
+    }
+    
+    public static void main(String args[])
+    {
+        Scanner s=new Scanner(System.in);
+        String str=s.nextLine();
+        EvaluationOfPostfix ob=new EvaluationOfPostfix();
+        //System.out.println(str);
+        int x=ob.Evaluation(str);
+        System.out.println(x);
+    }
+}

@@ -1,0 +1,127 @@
+public class Queue{
+   
+        int rear;
+        int front;
+        int queue[];
+        int size=0;
+        Queue(int c)
+        {
+            front=0;
+            rear=0;
+            size=c;
+            queue=new int[size];
+        }
+    
+
+
+    
+    
+    public void Enqueue(int data)
+    {
+     if(Full())
+     {
+         System.out.println("Queue is Full");
+     }
+     else
+     {
+         queue[rear]=data;
+         rear++;
+     }
+     
+     
+    }
+    
+    
+    
+    public void Dequeue()
+    {
+     
+     if(Empty())
+     {
+         System.out.println("Queue is Empty");
+     }
+    //  else
+    //  {
+    //      rear--;
+    //  }
+    else { 
+            for (int i = 0; i < rear - 1; i++) { 
+                queue[i] = queue[i + 1]; 
+            } 
+  
+            
+            if (rear < size) 
+                queue[rear] = 0; 
+  
+           
+            rear--; 
+        } 
+    }
+    
+    
+    
+    
+    
+  public void Front()
+     {
+       if(front==rear)
+      {
+           System.out.println("Queue is Empty");
+       }
+      
+       System.out.println("Element at first is: "+queue[front]);
+    }
+    
+    
+    
+    
+    
+    
+    
+    public void Display()
+    {
+        if(front==rear)
+        {
+            System.out.println("Queue is Empty");
+        }
+        for(int i=0;i<rear;i++)
+        {
+           // System.out.println(queue[0]);
+            System.out.print(" "+queue[i]);
+        }
+    }
+    public boolean Empty()
+    {
+        if(size==0)
+        {
+            return true;
+        }
+        return false;
+    }
+    public boolean Full()
+    {
+        if(size==rear)
+        {
+            return true;
+        }
+        return false;
+    }
+    
+    
+    
+    
+    public static void main(String args[]) {
+        Queue q=new Queue(4);
+       // Main ob=new Main();
+        //q.queue(4);
+        q.Enqueue(20);
+          q.Enqueue(30);
+               q.Enqueue(40);
+                 q.Enqueue(50);
+               q.Dequeue();
+        q.Display();
+        System.out.println("");
+        q.Front();
+
+    }
+}

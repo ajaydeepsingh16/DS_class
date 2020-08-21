@@ -1,0 +1,118 @@
+public class MyCircularDeque {
+    int size;
+    int front;
+    int rear;
+    int queue[];
+
+    /** Initialize your data structure here. Set the size of the deque to be k. */
+    public MyCircularDeque(int k) {
+        size=k;
+        front=k*10;
+        rear=k*10;
+        queue=new int[k];
+        
+    }
+    
+    /** Adds an item at the front of Deque. Return true if the operation is successful. */
+    public boolean insertFront(int value) {
+        
+        if(isFull())
+        {
+            return false;
+        }
+        else
+        {
+            front--;
+            queue[front%size]=value;
+            return true;
+        }
+        
+    }
+    
+    /** Adds an item at the rear of Deque. Return true if the operation is successful. */
+    public boolean insertLast(int value) {
+        if(isFull())
+        {
+            return false;
+        }
+        else
+        {
+            queue[rear%size]=value;
+            rear++;
+            return true;
+        }
+    }
+    
+    /** Deletes an item from the front of Deque. Return true if the operation is successful. */
+    public boolean deleteFront() {
+        if(isEmpty())
+        {
+            return false;
+        }
+        else
+        {
+            front++;
+            return true;
+        }
+    }
+    
+    /** Deletes an item from the rear of Deque. Return true if the operation is successful. */
+    public boolean deleteLast() {
+        if(isEmpty())
+        {
+            return false;
+        }
+        else
+        {
+            rear--;
+            return true;
+        }
+    }
+    
+    /** Get the front item from the deque. */
+    public int getFront() {
+        if(isEmpty())
+        {
+            return -1;
+        }
+        else
+        {
+            return queue[front%size];
+        }
+    }
+    
+    /** Get the last item from the deque. */
+    public int getRear() {
+        if(isEmpty()){
+            return -1;
+        }
+        else
+        {
+            return queue[(rear+(size-1))%size];
+        }
+    }
+    
+    /** Checks whether the circular deque is empty or not. */
+    public boolean isEmpty() {
+        if(rear - front==1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    
+    /** Checks whether the circular deque is full or not. */
+    public boolean isFull() {
+        if(rear-front<size)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+}
